@@ -64,17 +64,37 @@ public class BinarySearchTree {
         }
     } // End of insertNode method 
 	
-	public void inorderTraversal(Node root) {
+	// Print the values in the tree in an order traversal
+	public void inorderTraversalPrint(Node root) {
 		if (root.getLeftChild() != null) {
-			inorderTraversal(root.getLeftChild());
+			inorderTraversalPrint(root.getLeftChild());
 		}
 			System.out.print(root.getElement() + " ");
 		if (root.getRightChild() != null) {
-			inorderTraversal(root.getRightChild());
+			inorderTraversalPrint(root.getRightChild());
 		}	
-	} // End of inorderTraversal method
+	} // End of inorderTraversalPrint method
 	
 	// Traverse tree to determine if node is present
-	public void searchTree(Node root) { }
+	public boolean searchTree(Node root) {
+		
+		boolean found = false;
+        Node node = root;
+        int number = node.getElement();
+        
+        while(!found && node != null) {
+        	
+            if(number == node.getElement()) {
+                found = true;
+            }
+            else if(number < node.getElement()) {
+                node = node.getLeftChild();
+            }
+            else {
+                node = node.getRightChild();
+            }
+        }
+        return found;
+	} // End of searchTree method
 	
 } // End of BinarySearchTree class
