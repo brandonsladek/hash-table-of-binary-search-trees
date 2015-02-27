@@ -76,11 +76,10 @@ public class BinarySearchTree {
 	} // End of inorderTraversalPrint method
 	
 	// Traverse tree to determine if node is present
-	public boolean searchTree(Node root) {
+	public boolean searchTree(Node root, int number) {
 		
 		boolean found = false;
         Node node = root;
-        int number = node.getElement();
         
         while(!found && node != null) {
         	
